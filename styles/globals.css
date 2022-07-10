@@ -1,16 +1,64 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  :root {
+    /* For rgb(255 115 179 / <alpha-value>) */
+    --color-primary: 255 115 179;
+
+    /* For hsl(198deg 93% 60% / <alpha-value>) */
+    --color-primary: 198deg 93% 60%;
+
+    /* For rgba(255, 115, 179, <alpha-value>) */
+    --color-primary: 255, 115, 179;
+  }
+}
+
+@layer components {
+  .header {
+    @apply flex justify-between items-center py-8 px-12 text-4xl font-bold bg-blue-500;
+  }
+
+  .main {
+    @apply p-16;
+  }
+
+  .footer {
+    @apply flex justify-center items-center p-4 text-4xl font-bold bg-blue-500;
+  }
+
+  .btn {
+    @apply border text-3xl text-white rounded-md px-12 py-4 m-2 transition duration-500 ease-in-out select-none focus:outline-none;
+  }
+
+  .btn-yellow {
+    @apply border-yellow-500 bg-yellow-500  hover:bg-yellow-600;
+  }
+
+  .btn-blue {
+    @apply border-indigo-500 bg-indigo-500 hover:bg-indigo-600;
+  }
+
+  .btn-green {
+    @apply border-green-500 bg-green-500 hover:bg-green-600;
+  }
+}
+
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-500 dark:bg-green-400;
 }
